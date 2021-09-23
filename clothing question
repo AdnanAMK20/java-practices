@@ -1,0 +1,70 @@
+public class clothing {
+    String code,type, material;
+    int size;
+    float price;
+    float Gprice;
+    
+    clothing(){
+        
+        code="Not assigned";
+        type="Not assigned";
+        material="Not assigned";
+        price=0;
+    }
+    
+      void enter(String code, String type, int size , String material, int price)
+      {
+         this.code=code;
+         this.type=type;
+         this.size=size;
+         this.material=material;
+         this.price=price;
+         calc_Price();
+      }
+  
+      float calc_Price()
+      {
+          
+          int a=material.compareTo("cotton");
+          if(a==0)
+          {
+              int b=type.compareTo("trouser");
+              if(b==0)
+              {
+                  Gprice=1500;
+              }
+             
+              int c=type.compareTo("shirt");
+              if(c==0)
+              {
+                  Gprice=1200;
+              }
+          }
+          else
+          { Gprice=price*0.75f;}
+        return Gprice;
+      }
+      
+      void show()
+      {
+      System.out.println("Code "+code);
+      System.out.println("Type "+type);
+      System.out.println("Material "+material);
+      System.out.println("Size "+size);
+      System.out.println("Gprice "+Gprice);
+      }
+    }
+
+public class JavaApplication21 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+     clothing c1=new clothing();
+          clothing c2=new clothing();
+     c1.enter("A101", "shirt", 12, "cotton",1);
+     c1.show();
+    
+    }
+ 
